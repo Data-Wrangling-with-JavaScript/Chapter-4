@@ -1,16 +1,16 @@
-'use strict';
+"use strict";
 
 var request = require('request-promise');
 var cheerio = require('cheerio');
 
-var scrapeWebPage = function (url) {
+function scrapeWebPage (url) {
     return request.get(url)
         .then(response => {
             var $ = cheerio.load(response);
-            var headers = $('thead tr')
+            var headers = $("thead tr")
                 .map((i, el) => {
                     return $(el)
-                        .find('th')
+                        .find("th")
                         .map((i, el) => {
                             return $(el).text();
                         })
@@ -18,10 +18,10 @@ var scrapeWebPage = function (url) {
                 })
                 .toArray();
 
-            var rows = $('tbody tr')
+            var rows = $("tbody tr")
                 .map((i, el) => {
                     return [$(el)
-                        .find('td')
+                        .find("td")
                         .map((i, el) => {
                             return $(el).text();
                         })
@@ -41,7 +41,7 @@ var scrapeWebPage = function (url) {
         });
 };
 
-var url = 'https://earthquake.usgs.gov/earthquakes/browse/largest-world.php';
+var url = "https://earthquake.usgs.gov/earthquakes/browse/largest-world.php";
 scrapeWebPage(url)
     .then(data => {
 	   console.log(data);

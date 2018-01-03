@@ -1,9 +1,9 @@
-'use strict';
+"use strict";
 
 var fs = require('fs');
 var moment = require('moment');
 
-var records = JSON.parse(fs.readFileSync('./data/earthquakes.json', 'utf8'));
+var records = JSON.parse(fs.readFileSync("./data/earthquakes.json", "utf8"));
 
 var bufferSize = 4 + 8 * 5 * records.length;
 var buffer = new Buffer(bufferSize);
@@ -32,4 +32,4 @@ for (var recordIndex = 0; recordIndex < records.length; ++recordIndex) {
     bufferOffset += 8;
 }
 
-fs.writeFileSync('./output/earthquakes.bin', buffer);
+fs.writeFileSync("./output/earthquakes.bin", buffer);

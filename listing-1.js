@@ -1,8 +1,8 @@
-'use strict';
+"use strict";
 
 var file = require('./toolkit/file.js'); 
 
-var parseCustomData = function (textFileData) {
+function parseCustomData (textFileData) {
     const regex = /(.*)\|(.*)\|(.*)\|(.*)\|(.*)\|(.*)\|(.*)\|(.*)\|(.*)\|(.*)\|(.*)\|(.*)\|(.*)$/gm;
 
     var rows = [];
@@ -31,7 +31,7 @@ var parseCustomData = function (textFileData) {
     return data;
 };
 
-file.read('./data/earthquakes.txt')
+file.read("./data/earthquakes.txt")
     .then(textFileData => parseCustomData(textFileData))
     .then(data => {
         console.log(data);

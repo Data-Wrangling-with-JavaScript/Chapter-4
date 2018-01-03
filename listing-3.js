@@ -1,7 +1,7 @@
-'use strict';
+"use strict";
 
 var fs = require('fs');
-var buffer = fs.readFileSync('./data/earthquakes.bin');
+var buffer = fs.readFileSync("./data/earthquakes.bin");
 
 var numRecords = buffer.readInt32LE(0);
 
