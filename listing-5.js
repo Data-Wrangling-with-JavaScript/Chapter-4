@@ -1,17 +1,17 @@
 "use strict";
 
-var fs = require('fs');
-var moment = require('moment');
-var BSON = require('bson');
+const fs = require('fs');
+const moment = require('moment');
+const BSON = require('bson');
 
-var records = JSON.parse(fs.readFileSync("./data/earthquakes.json", "utf8"));
+const records = JSON.parse(fs.readFileSync("./data/earthquakes.json", "utf8"));
 
-for (var recordIndex = 0; recordIndex < records.length; ++recordIndex) {
-    var record = records[recordIndex];
+for (let recordIndex = 0; recordIndex < records.length; ++recordIndex) {
+    const record = records[recordIndex];
     record.Time = moment(record.Time).toDate();
 }
 
-var bson = new BSON();
-var serializedData = bson.serialize(records);
+const bson = new BSON();
+const serializedData = bson.serialize(records);
 
 fs.writeFileSync("./output/earthquakes.bson", serializedData);

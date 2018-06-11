@@ -1,21 +1,21 @@
 "use strict";
 
-var fs = require('fs');
-var moment = require('moment');
+const fs = require('fs');
+const moment = require('moment');
 
-var records = JSON.parse(fs.readFileSync("./data/earthquakes.json", "utf8"));
+const records = JSON.parse(fs.readFileSync("./data/earthquakes.json", "utf8"));
 
-var bufferSize = 4 + 8 * 5 * records.length;
-var buffer = new Buffer(bufferSize);
+const bufferSize = 4 + 8 * 5 * records.length;
+const buffer = new Buffer(bufferSize);
 
 buffer.writeInt32LE(records.length);
 
-var bufferOffset = 4;
+let bufferOffset = 4;
 
-for (var recordIndex = 0; recordIndex < records.length; ++recordIndex) {
+for (let recordIndex = 0; recordIndex < records.length; ++recordIndex) {
 
-    var record = records[recordIndex];
-    var time = moment(record.Time).toDate().getTime();
+    const record = records[recordIndex];
+    const time = moment(record.Time).toDate().getTime();
     buffer.writeDoubleLE(time, bufferOffset);
     bufferOffset += 8;
 

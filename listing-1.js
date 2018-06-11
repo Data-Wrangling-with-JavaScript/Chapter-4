@@ -1,6 +1,6 @@
 "use strict";
 
-var file = require('./toolkit/file.js'); 
+const file = require('./toolkit/file.js'); 
 
 function parseCustomData (textFileData) {
     const regex = /(.*)\|(.*)\|(.*)\|(.*)\|(.*)\|(.*)\|(.*)\|(.*)\|(.*)\|(.*)\|(.*)\|(.*)\|(.*)$/gm;

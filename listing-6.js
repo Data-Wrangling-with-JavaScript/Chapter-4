@@ -1,11 +1,11 @@
 "use strict";
 
-var fs = require('fs');
-var BSON = require('bson');
+const fs = require('fs');
+const BSON = require('bson');
 
-var loadedData = fs.readFileSync("./data/earthquakes.bson");
+const loadedData = fs.readFileSync("./data/earthquakes.bson");
 
-var bson = new BSON();
-var deserializedData = bson.deserialize(loadedData);
+const bson = new BSON();
+const deserializedData = bson.deserialize(loadedData);
 
 console.log(deserializedData);
