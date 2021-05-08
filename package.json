@@ -16,7 +16,7 @@
   },
   "homepage": "https://github.com/JavaScript-Data-Wrangling/Chapter-4#readme",
   "dependencies": {
-    "bson": "1.0.4",
+    "bson": "1.1.4",
     "cheerio": "1.0.0-rc.2",
     "moment": "2.21.0",
     "request": "2.81.0",
